@@ -36,4 +36,5 @@ section {
     flex-direction: column;
     padding: 20px;
     background-color: #f5f5f5;
+    gap: 20px;
 }
