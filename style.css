@@ -232,6 +232,9 @@ sup {
         flex-direction: column;
         /* gap: 20px; */
     }
+    sup {
+        font-size: 8px;
+    }
     .temp-area {
         display: block;
         text-align: center;
@@ -250,7 +253,10 @@ sup {
     .day {
         font-size: 14px;
     }
-    
+    .weekly-img {
+        width: 60px;
+        height: 60px;
+    }
 
 
 
