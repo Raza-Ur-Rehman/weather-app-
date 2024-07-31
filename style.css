@@ -14,11 +14,15 @@
 body { 
     width: 100%;
     height: 100vh;
-    display: grid;
-    place-items: center;
+   
+}
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
     /* overflow-x: hidden;  */
 }
-
 .box {
     width: 80%;
     height: 80%;
@@ -33,12 +37,14 @@ body {
     background-color: #333;
     /* gap: 2%; */
 }
+/* header style  */
 header {
     /* height: 80%; */
     width: 100%;
     /* background-color: #333; */
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     /* gap: 10px; */
 
 }
@@ -61,7 +67,6 @@ header {
 .input-area {
     padding: 20px 10px;
     width: 100%;
-    /* background-color: #4567; */
     display: flex;
     gap: 5px;
     /* flex-wrap: wrap; */
@@ -103,6 +108,7 @@ header {
 #location i {
     font-size: 20px;
 }
+/* section work  */
 section {
     width: 100%;
     /* height: 100%; */
@@ -110,10 +116,11 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     padding: 20px;
     background-color: #333;
 }
-
+ /* hero section style   */
 .temp-area {
     display: flex;
     align-items: end;
@@ -139,6 +146,7 @@ sup {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
     gap: 20px;
 }
 .img-box img {
@@ -158,26 +166,29 @@ sup {
 .feel-temp-box i{
     margin-right: 6px;
 }
+/* weekly Forecast style  */
+
 .weekly-temp {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     /* max-height: 60%; */
     background-color: #212951;
     border-radius: 20px;
     padding: 20px;
-    display: flex;
     gap: 10px;
 
 }
 .weekly-box {
     width: 16%;
-    /* max-height: 100%; */
     background-color: #333;
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    /* justify-content: space-evenly; */
+    font-size: 14px;
+    gap: 8px;
 
 }
 .day {
@@ -191,8 +202,59 @@ sup {
 .weekly-box p {
     margin-top: 10px;
 }
+@media (max-width: 900px) {
+   .box {
+    width: 100%;
+    height: 100%;
+
+   }
+    header {
+        flex-direction: column-reverse;
+    }
+    .city-box {
+        width: 100%;
+    }
+    .city-box h1 {
+        font-size: 50px;
+        text-align: center;
+    }
+    .city-box span {
+        font-size: 12px;
+    }
+    .input-area {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #btn  {
+        width: 80%;
+    } 
+    section {
+        flex-direction: column;
+        /* gap: 20px; */
+    }
+    .temp-area {
+        display: block;
+        text-align: center;
+        padding: 0px;
+    }
+    .weekly-temp {
+        justify-content: center;
+        gap: 8px;
+        padding: 10px;
+    }
+    .weekly-box {
+        width: 48%;
+        font-size: 12px;
+        gap: 2px;
+    }
+    .day {
+        font-size: 14px;
+    }
+    
 
 
+
+}
 
 
 
