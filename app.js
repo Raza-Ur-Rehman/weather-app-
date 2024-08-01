@@ -35,6 +35,7 @@ let discription = document.getElementById("description");
 let feelTemp = document.getElementById("feeltemp");
 let humidity = document.getElementById("humidity");
 let wind = document.getElementById("wind");
+let img = document.getElementById("condition-img");
 // let newdate = new Date();
 function showData(data) {
     console.log(data);
@@ -42,29 +43,27 @@ function showData(data) {
     const { temp } = data.main;
     let updatedTemp = Math.floor(temp);
     let { main, icon, id } = data.weather[0];
-    let urlImg;
-
-
+    let urlImg = img.src; 
     if (id >= 200 && id <= 232) {
-        urlImg = './assets/imges/storm.png';
+        img.src = '/assets/imges/storm.png';
         // body.className += ' bg thunderstorms';
     } else if (id >= 300 && id <= 321) {
-        urlImg = './assets/imges/drizzle.png';
+        img.src = '/assets/imges/drizzle.png';
         // body.className += ' bg drizzle';
     } else if (id >= 500 && id <= 531) {
-        urlImg = './assets/imges/heavy-rain.png';
+        img.src = '/assets/imges/heavy-rain.png';
         // body.className += ' bg rain';
     } else if (id >= 600 && id <= 622) {
-        urlImg = './assets/imges/snow.png';
+        img.src = '/assets/imges/snow.png';
         // body.className += ' bg snow';
     } else if (id >= 701 && id <= 781) {
-        urlImg = './assets/imges/cloudy.png';
+        img.src = '/assets/imges/cloudy.png';
         // body.className += ' bg cloudy';
     } else if (id >= 801 && id <= 804) {
-        urlImg = './assets/imges/clouds.png';
+        img.src = '/assets/imges/clouds.png';
         // body.className += ' bg clouds';
     } else {
-        urlImg = './assets/imges/sun.png';
+        img.src = '/assets/imges/sun.png';
         // body.className += ' bg sun';
     }
     city.innerText = data.name;
