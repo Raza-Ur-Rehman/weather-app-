@@ -5,12 +5,9 @@ let curntlocation = document.getElementById("location");
 let loader = document.querySelector(".loading");
 let notfound = document.querySelector(".notfound-box");
 let box = document.querySelector(".box");
-let header = document.querySelectorAll("header");
-let {city, date} = header;
-let section1 = document.querySelectorAll(".section1");
-let {temp, description, feeltemp, humidity, wind } = section1;
 let API_KEY = "6a2cbb94ad82ec57712155442fb8198c";
 
+// console.log(newdate);
 function fetchData() {
     if(search.value.trim() === "") {
         error.innerText = "Please Input a City name";
@@ -31,15 +28,22 @@ function fetchData() {
     }
     search.value = '';
 }
-
+let city = document.getElementById("city");
+let date = document.getElementById("date");
+let tempereture = document.getElementById("temp");
+let discription = document.getElementById("description");
+let feelTemp = document.getElementById("feeltemp");
+let humidity = document.getElementById("humidity");
+let wind = document.getElementById("wind");
+// let newdate = new Date();
 function showData(data) {
     console.log(data);
     const { country } = data.sys;
-    const { name } = data;
     const { temp } = data.main;
     let updatedTemp = Math.floor(temp);
     let { main, icon, id } = data.weather[0];
     let urlImg;
+
 
     if (id >= 200 && id <= 232) {
         urlImg = './assets/imges/storm.png';
@@ -63,8 +67,10 @@ function showData(data) {
         urlImg = './assets/imges/sun.png';
         // body.className += ' bg sun';
     }
-    city.innerText
+    city.innerText = data.name;
+    tempereture.innerText = updatedTemp;
 
+    // date.innertext = newdate();
 }
 
 
