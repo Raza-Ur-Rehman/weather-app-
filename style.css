@@ -93,17 +93,20 @@ header {
 }
 #btn {
     width: 90px;
-    height: 40px;  
+    height: 40px; 
+    cursor: pointer; 
 }
 #location {
     width: 40px;
-    height: 40px;  
+    height: 40px; 
+    cursor: pointer; 
 }
 #location i {
     font-size: 20px;
 }
 #error {
     color: #e74c3c;
+    
 }
 /* section work  */
 section {
@@ -183,7 +186,17 @@ sup {
     justify-content: space-evenly;
     font-size: 14px;
     gap: 8px;
+    border-radius: 20px;
+}
+.weekly-box:hover {
+    background-color: #6d709c50;
+    
+    backdrop-filter: blur(50px);
 
+}
+.notfound {
+    width: 200px;
+    object-fit: contain;
 }
 .day {
     font-size: 18px;
@@ -286,6 +299,9 @@ sup {
     .input-box {
         flex-direction: column;
     }
+    #error {
+        text-align: center;
+    }
     .city-box {
         width: 100%;
         text-align: center;
@@ -302,8 +318,11 @@ sup {
         flex-wrap: wrap;
         justify-content: center;
     }
+    .button-box {
+        margin-top: 6px;
+    }
     #btn  {
-        width: 80%;
+        width: 100%;
     } 
     section {
         flex-direction: column;
