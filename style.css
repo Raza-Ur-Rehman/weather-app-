@@ -305,6 +305,7 @@ sup {
     .city-box {
         width: 100%;
         text-align: center;
+        color: var(--white);
     }
     .city-box h1 {
         font-size: 50px;
@@ -312,7 +313,7 @@ sup {
     }
     .city-box span {
         font-size: 12px;
-        text-align: center;
+        /* text-align: center; */
     }
     .input-area {
         flex-wrap: wrap;
