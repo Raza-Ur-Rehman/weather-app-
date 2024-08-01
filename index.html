@@ -12,15 +12,30 @@
       <div class="main">
           <!-- <h1 id="title">Weather App</h1> -->
           <div class="box">
-            <header>
+              <section class="loading ">
+                <div class="loading-bar">
+                    <span id="one"></span>
+                    <span id="two"></span>
+                    <span id="three"></span>
+                    <span id="four"></span>
+                </div>
+            </section>
+              <header>
                 <div class="city-box">
                     <h1 id="city">Toronto</h1>
                     <span id="date">Thursday,31 August 2024 | 10:14 PM</span>
                 </div>
-            <div class="input-area">
-                <input type="text" id="search" placeholder="Enter city name">
-                <button id="btn">Search</button>
-                <button id="location"><i class="fa-solid fa-location-crosshairs"></i></button>
+            <div class="input-area ">
+                <div class="input-box d-flex">
+                    <input type="text" id="search" placeholder="Enter city name">
+                <div class="mt-2 d-flex ">
+                    <button id="btn">Search</button>
+                <button id="location" class="ml-2"><i class="fa-solid fa-location-crosshairs"></i></button>
+                </div>
+                </div>
+                <div class="">
+                    <p id="error">error</p>
+                </div>
             </div>
             </header>
             <section class="section1">
