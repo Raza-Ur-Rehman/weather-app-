@@ -22,25 +22,27 @@
             </section>
               <header>
                 <div class="city-box">
-                    <h1 id="city">Toronto</h1>
-                    <span id="date">Thursday,31 August 2024 | 10:14 PM</span>
+                    <h1 id="city">City</h1>
+                    <span id="date">day, date month year | 00:00 PM</span>
                 </div>
             <div class="input-area ">
                 <div class="input-box d-flex">
                     <input type="text" id="search" placeholder="Enter city name">
-                <div class="mt-2 d-flex ">
-                    <button id="btn">Search</button>
-                <button id="location" class="ml-2"><i class="fa-solid fa-location-crosshairs"></i></button>
+                <div class=" d-flex gap-2 button-box">
+                    <button id="btn" onclick="fetchData();">Search</button>
+                <button id="location"><i class="fa-solid fa-location-crosshairs"></i></button>
                 </div>
                 </div>
                 <div class="">
-                    <p id="error">error</p>
+                    <p id="error"></p>
                 </div>
             </div>
             </header>
+            <div class="notfound-box">
+            </div>
             <section class="section1">
                 <div class="temp-area">
-                    <h1 id="temp">15</h1>
+                    <h1 id="temp">0</h1>
                     <div class="degree">
                         <span><sup>O</sup>C | <sup>O</sup>F</span>
                         <p id="description">Portly cloudy </p>
@@ -49,9 +51,9 @@
                 <div class="img-box">
                     <img src="assest/imges/snow.png" alt="loading">
                     <div class="feel-temp-box">
-                        <p><i class="fa-solid fa-temperature-quarter"></i>Feels Max : <span id="feel-temp">31</span> <sup>o</sup>C</p>
-                        <p><i class="fa-solid fa-water"></i> Humidity : <span id="humidity">15</span>%</p>
-                        <p><i class="fa-solid fa-wind"></i> Wind : <span id="wind">14</span>km/h</p>
+                        <p><i class="fa-solid fa-temperature-quarter"></i>Feels Max : <span id="feeltemp">0</span> <sup>o</sup>C</p>
+                        <p><i class="fa-solid fa-water"></i> Humidity : <span id="humidity">0</span>%</p>
+                        <p><i class="fa-solid fa-wind"></i> Wind : <span id="wind">0</span>km/h</p>
                     </div>
                 </div>
                 
@@ -99,7 +101,6 @@
         </div>
 
       </div>
-
 
     <script src="app.js"></script>
 </body>
