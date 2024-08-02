@@ -1,20 +1,20 @@
 let search = document.getElementById("search");
 let btn = document.getElementById("btn");
-let error = document.getElementById("error");
+let eror = document.getElementById("error");
 let curntlocation = document.getElementById("location");
 let loader = document.querySelector(".loading");
 let notfound = document.querySelector(".notfound-box");
 let section1 = document.querySelector(".section1");
 let cityBox = document.querySelector(".city-box")
-let section2 = document.querySelector(".section2");
+// let section2 = document.querySelector(".section2");
 let API_KEY = "6a2cbb94ad82ec57712155442fb8198c";
-
+let currentDate = new Date().toLocaleDateString();
 // console.log(newdate);
 function fetchData() {
   if (search.value.trim() === "") {
-    error.innerText = "Please Input a City name";
+    eror.innerText = "Please Input a City name";
     setTimeout(() => {
-      error.innerText = "";
+      eror.innerText = "";
     }, 1500);
   } else {
     // box.innerHTML = `<p>loading.....</p>`;
@@ -23,19 +23,21 @@ function fetchData() {
       .then((res) => res.json())
       .then((data) => showData(data))
       .catch((err) => {
-          notfound.innerHTML = `<img class="notfound" src="assest/imges/not-found.png"/>`;
+          if (404) {
+            notfound.innerHTML = `<img class="notfound" src="assest/imges/not-found.png"/>`;
           section1.innerHTML = "";
           cityBox.innerHTML = "";
-          section2.style.display = "none";
+          }
+          // section2.style.display = "none";
       });
   }
   search.value = "";
 }
-let currentDate = new Date();
+
 function showData(data) {
   notfound.innerHTML = "";
 
-  const { temp, feels_like } = data.main;
+  const { temp, feels_like,humidity } = data.main;
   const {speed} = data.wind;
   let updatedTemp = Math.floor(temp);
   let feelMax = Math.floor(feels_like);
@@ -67,7 +69,7 @@ function showData(data) {
 
   cityBox.innerHTML =`
                 <h1 id="city">${data.name} <span id="country">${data.sys.country}</span></h1>
-                    <span id="date">${data.timezone}</span>`
+                    <span id="date">${currentDate}</span>`
   section1.innerHTML = `
                 <div class="temp-area">
                     <h1 id="temp">${updatedTemp}</h1>
@@ -80,29 +82,12 @@ function showData(data) {
                     <img id="condition-img" src="${urlImg}" alt="loading">
                     <div class="feel-temp-box">
                         <p><i class="fa-solid fa-temperature-quarter"></i>Feels Max : <span id="feeltemp">${feelMax}</span> <sup>o</sup>C</p>
-                        <p><i class="fa-solid fa-water"></i> Humidity : <span id="humidity"></span></span>%</p>
+                        <p><i class="fa-solid fa-water"></i> Humidity : <span id="humidity"></span>${humidity}</span>%</p>
                         <p><i class="fa-solid fa-wind"></i> Wind : <span id="wind">${speed}</span>km/h</p>
                     </div>
                 </div>
 `
 console.log(data);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 search.addEventListener('keyup', (e) => {
@@ -111,5 +96,35 @@ search.addEventListener('keyup', (e) => {
     }
 });
 
-
 btn.addEventListener('click', fetchData);
+
+
+// location function 
+
+function getCurrentLocation() {
+  navigator.geolocation.getCurrentPosition(
+      (position) => {
+          let lon = position.coords.longitude;
+          let lat = position.coords.latitude;
+          let Currenturl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`;
+          fetch(Currenturl)
+              .then((res) => res.json())
+              .then((data) => showData(data))
+              .catch((err) => {
+                notfound.innerHTML = `<img class="notfound" src="assest/imges/not-found.png"/>`;
+                section1.innerHTML = "";
+                cityBox.innerHTML = "";
+                  // console.log(err);
+              });
+      },
+      (error) => {
+          const { message } = error;
+          eror.innerText = `${message}`;
+          setTimeout(() => {
+            eror.innerText = "";
+          }, 1500);
+      }
+  );
+}
+
+curntlocation.addEventListener('click', getCurrentLocation);
