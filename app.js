@@ -47,7 +47,7 @@ function showData(data) {
   } else if (id >= 500 && id <= 531) {
     urlImg = "assest/imges/heavy-rain.png";
   } else if (id >= 600 && id <= 622) {
-    urlImg = "./assest/imges/snow.png";
+    urlImg = "assest/imges/snow.png";
   } else if (id >= 701 && id <= 781) {
     urlImg = "assest/imges/cloudy.png";
   } else if (id >= 801 && id <= 804) {
@@ -69,7 +69,7 @@ function showData(data) {
                     </div>
                 </div>
                 <div class="img-box">
-                    <img id="condition-img" src="${urlImg}" alt="loading">
+                    <img id="condition-img" src= ${urlImg} alt="loading">
                     <div class="feel-temp-box">
                         <p><i class="fa-solid fa-temperature-quarter"></i>Feels Max : <span id="feeltemp">${feelMax}</span> <sup>o</sup>C</p>
                         <p><i class="fa-solid fa-water"></i> Humidity : <span id="humidity"></span>${humidity}</span>%</p>
